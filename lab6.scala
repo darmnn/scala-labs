@@ -4,20 +4,17 @@ object lab6 extends App
 {
     //Часть 1.Разделить коллекцию на две. В первой должны быть только положительные элементы, а во второй только отрицательные
 
-    def positive(num: Int): Boolean = if(num > 0) true else false
-    def negative(num: Int): Boolean = if(num < 0) true else false
-
     def getPos(list:List[Int]):List[Int] =
     {
         val posList = new ListBuffer[Int]()
-        for(el <- list) if(positive(el)) posList += el
+        for(el <- list) if(el > 0) posList += el
         posList.toList
     }
 
     def getNeg(list:List[Int]):List[Int] =
     {
         val negList = new ListBuffer[Int]()
-        for(el <- list) if(negative(el)) negList += el
+        for(el <- list) if(el < 0) negList += el
         negList.toList
     }
 
@@ -40,12 +37,10 @@ object lab6 extends App
 
     //Часть 3.	На основе List[String] сгенерировать строку, сконкатенированную через ' ' из тех подстрок List, которые начинаются с заглавной буквы.
 
-    def checkUpper(str: String):Boolean = if(str.charAt(0).isUpper) true else false
-
     def getUpper(list: List[String]) =
     {
         var res = ""
-        val newList = list.filter(checkUpper(_))
+        val newList = list.filter(_.charAt(0).isUpper)
         for(el <- newList)  res += el + " "
         res
     }
