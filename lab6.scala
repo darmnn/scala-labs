@@ -46,7 +46,7 @@ object lab6 extends App
     {
         var res = ""
         val newList = list.filter(checkUpper(_))
-        for(el <- list)  res += el + " "
+        for(el <- newList)  res += el + " "
         res
     }
 
